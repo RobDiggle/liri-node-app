@@ -15,8 +15,12 @@ var twitter = require('twitter');
 var twitterKeys = keys.twitterKeys;
 var spotify = require('spotify');
 
-var request = require('request');
-
+var client = new twitter({
+        consumer_key: keys.twitterKeys.consumer_key,
+        consumer_secret: keys.twitterKeys.consumer_secret,
+        access_token_key: keys.twitterKeys.access_token_key,
+        access_token_secret: keys.twitterKeys.access_token_secret
+    });
 
 function myTweets() {
     var params = {screen_name: 'nodejs'};
@@ -63,22 +67,6 @@ var spotifyObtain = function (songName){
 
 }
 
-    request(
-  .get('http://google.com/img.png')
-  .on('response', function(response) {
-    console.log(response.statusCode) // 200 
-    console.log(response.headers['content-type']) // 'image/png' 
-  })
-  .pipe(request.put('http://mysite.com/img.png'))
-
-var client = new twitter({
-        consumer_key: keys.twitterKeys.consumer_key,
-        consumer_secret: keys.twitterKeys.consumer_secret,
-        access_token_key: keys.twitterKeys.access_token_key,
-        access_token_secret: keys.twitterKeys.access_token_secret
-    });
-
-
 var omdb = require('omdb');
  
 var findMovie = function(movieName) {
@@ -112,7 +100,12 @@ omdb.get({ title: 'Saw', year: 2004 }, true, function(err, movie) {
 });
 
 
-
+var request = require('request');
+request('http://www.omdbapi.com/?t=Frozen', function (error, response, body) {
+  console.log('error:', error); // Print the error if one occurred 
+  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+  console.log('body:', body); // Print the HTML for the Google homepage. 
+});
 
 
 
