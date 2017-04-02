@@ -37,80 +37,78 @@ function myTweets() {
     });
 }
 
-var artistCall = function(artist) {
-    return artist.name;
-}
+// var artistCall = function(artist) {
+//     return artist.name;
+// }
 
-var spotifyObtain = function (songName){
+// var spotifyObtain = function (songName){
 
  
 
-    spotify.search({ type: 'track', query: songName }, function(error, data) {
-    if ( error ) {
-        console.log('Error occurred: ' + error);
-        return;
-    }
-    else if( !error)
-    {
-        console.log( + " is a great song.")
+//     spotify.search({ type: 'track', query: songName }, function(error, data) {
+//     if ( error ) {
+//         console.log('Error occurred: ' + error);
+//         return;
+//     }
+//     else if( !error)
+//     {
+//         console.log( + " is a great song.")
     
  
-    var songs = data.tracks.items;
-    for(i=0; i < songs.length; i++)
-    {
-         console.log(i);
+//     var songs = data.tracks.items;
+//     for(i=0; i < songs.length; i++)
+//     {
+//          console.log(i);
 
-    }
+//     }
 
-    console.log(songs[i].name)
-    }});
+//     console.log(songs[i].name)
+//     }});
 
-}
+// }
 
-var omdb = require('omdb');
+// var omdb = require('omdb');
  
-var findMovie = function(movieName) {
-    omdb.search('saw', function(err, movies) {
-    if(err) {
-        return console.error(err);
-    }
+// var findMovie = function(movieName) {
+//     omdb.search('saw', function(err, movies) {
+//     if(err) {
+//         return console.error(err);
+//     }
  
-    if(movies.length < 1) {
-        return console.log('No movies were found!');
-    }
+//     if(movies.length < 1) {
+//         return console.log('No movies were found!');
+//     }
  
-    movies.forEach(function(movie) {
-        console.log('Movie(s): ', movie.title, movie.year);
-    });
+//     movies.forEach(function(movie) {
+//         console.log('Movie(s): ', movie.title, movie.year);
+//     });
 
-});
+// });
  
-omdb.get({ title: 'Saw', year: 2004 }, true, function(err, movie) {
-    if(err) {
-        return console.error(err);
-    }
+// omdb.get({ title: 'Saw', year: 2004 }, true, function(err, movie) {
+//     if(err) {
+//         return console.error(err);
+//     }
  
-    if(!movie) {
-        return console.log('Movie not found!');
-    }
+//     if(!movie) {
+//         return console.log('Movie not found!');
+//     }
  
-    console.log('Movie: ', movie.title, movie.year, movie.imdb.rating);
-    console.log(movie.plot);
+//     console.log('Movie: ', movie.title, movie.year, movie.imdb.rating);
+//     console.log(movie.plot);
 
-});
+// });
 
 
-var request = require('request');
-request('http://www.omdbapi.com/?t=Frozen', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred 
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
-  console.log('body:', body); // Print the HTML for the Google homepage. 
-});
+// var request = require('request');
+// request('http://www.omdbapi.com/?t=Frozen', function (error, response, body) {
+//   console.log('error:', error); // Print the error if one occurred 
+//   console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
+//   console.log('body:', body); // Print the HTML for the Google homepage. 
+// };
 
 
 
 myTweets();
-spotifyObtain();
-findMovie();
-
-//
+//spotifyObtain();
+//findMovie()
