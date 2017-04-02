@@ -15,12 +15,8 @@ var twitter = require('twitter');
 var twitterKeys = keys.twitterKeys;
 var spotify = require('spotify');
 
-var client = new twitter({
-        consumer_key: keys.twitterKeys.consumer_key,
-        consumer_secret: keys.twitterKeys.consumer_secret,
-        access_token_key: keys.twitterKeys.access_token_key,
-        access_token_secret: keys.twitterKeys.access_token_secret
-    });
+var request = require('request');
+
 
 function myTweets() {
     var params = {screen_name: 'nodejs'};
@@ -67,6 +63,22 @@ var spotifyObtain = function (songName){
 
 }
 
+    request(
+  .get('http://google.com/img.png')
+  .on('response', function(response) {
+    console.log(response.statusCode) // 200 
+    console.log(response.headers['content-type']) // 'image/png' 
+  })
+  .pipe(request.put('http://mysite.com/img.png'))
+
+var client = new twitter({
+        consumer_key: keys.twitterKeys.consumer_key,
+        consumer_secret: keys.twitterKeys.consumer_secret,
+        access_token_key: keys.twitterKeys.access_token_key,
+        access_token_secret: keys.twitterKeys.access_token_secret
+    });
+
+
 var omdb = require('omdb');
  
 var findMovie = function(movieName) {
@@ -80,14 +92,9 @@ var findMovie = function(movieName) {
     }
  
     movies.forEach(function(movie) {
-        console.log('%s (%d)', movie.title, movie.year);
+        console.log('Movie(s): ', movie.title, movie.year);
     });
- 
-    // Saw (2004) 
-    // Saw II (2005) 
-    // Saw III (2006) 
-    // Saw IV (2007) 
-    // ... 
+
 });
  
 omdb.get({ title: 'Saw', year: 2004 }, true, function(err, movie) {
@@ -99,13 +106,10 @@ omdb.get({ title: 'Saw', year: 2004 }, true, function(err, movie) {
         return console.log('Movie not found!');
     }
  
-    console.log('%s (%d) %d/10', movie.title, movie.year, movie.imdb.rating);
+    console.log('Movie: ', movie.title, movie.year, movie.imdb.rating);
     console.log(movie.plot);
- 
-    // Saw (2004) 7.6/10 
-    // Two men wake up at opposite sides of a dirty, disused bathroom, chained 
-    // by their ankles to pipes. Between them lies... 
-}});
+
+});
 
 
 
@@ -114,5 +118,6 @@ omdb.get({ title: 'Saw', year: 2004 }, true, function(err, movie) {
 
 myTweets();
 spotifyObtain();
+findMovie();
 
 //
