@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/RobDiggle/liri-node-app#readme",
   "dependencies": {
+    "omdb": "^0.7.0",
+    "spotify": "^0.3.0",
     "twitter": "^1.7.0"
   }
 }
